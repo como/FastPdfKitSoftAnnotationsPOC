@@ -15,6 +15,7 @@
 #import "SearchManager.h"
 #import "MiniSearchView.h"
 #import "mfprofile.h"
+#import "StickyViewController.h"
 
 #define TITLE_MODE_SINGLE @"Single"
 #define TITLE_MODE_DOUBLE @"Double"
@@ -29,7 +30,7 @@
 
 @implementation DocumentViewController
 
-@synthesize leadButton, modeButton, directionButton, autozoomButton, automodeButton;
+@synthesize leadButton, modeButton, directionButton, autozoomButton, automodeButton, annotateButton;
 @synthesize pageLabel, pageSlider;
 @synthesize dismissButton, bookmarksButton, outlineButton;
 @synthesize prevButton, nextButton;
@@ -563,6 +564,27 @@
 #pragma mark -
 #pragma mark Common actions
 
+-(IBAction)actionAnnotate:(id)sender {
+	
+	if(!waitingForAnnotationPoint) {
+		
+		// We set the flag to YES and enable the documenter interaction. The flag is used to discard unwanted
+		// user interaction on the document elsewhere, while the document interaction will allow the document
+		// manager to notify its delegate (in this case itself) of user generated event on the document, like
+		// the tap on a certain page.
+		
+		waitingForAnnotationPoint = YES;
+		self.documentInteractionEnabled = YES;
+        
+		UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Text" message:@"Tap anywhere on the document to add annotation." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+		[alert show];
+		[alert release];
+	} else {
+		waitingForAnnotationPoint = NO;
+	}
+	
+}
+
 -(IBAction)actionText:(id)sender {
 	
 	if(!waitingForTextInput) {
@@ -831,9 +853,10 @@
 	if(!waitingForTextInput) {
 		
 		//	We are using this callback to selectively hide/unhide some UI components like the buttons.
-		
+        [self dropAnnotationWithPoint: point];
+        
 		if(hudHidden) {
-			
+                
 				[nextButton setHidden:NO];
 				[prevButton setHidden:NO];
 				
@@ -850,7 +873,6 @@
 		} else {
 			
 			// Hide
-			
 				[nextButton setHidden:YES];
 				[prevButton setHidden:YES];
 				
@@ -867,6 +889,26 @@
 		}
 	}
 }
+
+-(void) dropAnnotationWithPoint:(CGPoint)tapPoint {
+    if (waitingForAnnotationPoint) {
+        waitingForAnnotationPoint = NO;
+        //NSLog(@"Annotate: %@", NSStringFromCGPoint(tapPoint));
+        
+        CGRect stickyRect = CGRectMake(tapPoint.x, tapPoint.y, 0, 0);
+        
+        StickyViewController *sticky = [[StickyViewController alloc] init];
+        
+        UIPopoverController *popup = [[UIPopoverController alloc] initWithContentViewController:sticky];
+        
+        CGSize stickySize = {150, 100};
+        [popup setPopoverContentSize:stickySize];
+        
+        [popup presentPopoverFromRect:stickyRect inView:[self view] permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+        
+    }    
+}
+
 
 #pragma mark -
 #pragma mark UIViewController lifcecycle
@@ -998,7 +1040,17 @@
 		[[aButton titleLabel]setFont:font];
 		[self setAutozoomButton:aButton];
 		[[self view]addSubview:aButton];
-	
+    
+        // Annotate button.
+
+        aButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [aButton setFrame:CGRectMake(viewSize.width - padding - buttonWidth, padding*5 + buttonHeight, buttonWidth, buttonHeight)];
+        [aButton setTitle:@"Annotate" forState:UIControlStateNormal];
+        [aButton setAutoresizingMask:UIViewAutoresizingFlexibleBottomMargin|UIViewAutoresizingFlexibleLeftMargin];
+        [aButton addTarget:self action:@selector(actionAnnotate:) forControlEvents:UIControlEventTouchUpInside];
+        [[aButton titleLabel]setFont:font];
+        self.annotateButton = aButton;
+        [[self view]addSubview:aButton];
 	
 		// Text button.
 		aButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];

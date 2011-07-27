@@ -18,7 +18,7 @@
 #define TITLE_PLAIN @"Open"
 #define TITLE_ENCRYPTED @"Open"
 
-#define DOC_PLAIN @"FastPdfKit-1.0RC1"
+#define DOC_PLAIN @"doc1"
 #define DOC_ENCRYPTED @"FastPdfKit-1.0RC1crypt"
 
 @implementation MenuViewController

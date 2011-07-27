@@ -33,6 +33,7 @@
 	UIButton * directionButton;
 	UIButton * autozoomButton;
 	UIButton * automodeButton;
+    UIButton * annotateButton;
 	 
 	UIButton * dismissButton;
 	UIButton * bookmarksButton;
@@ -56,6 +57,9 @@
 	// Text extraction controller and stuff.
 	BOOL waitingForTextInput;
 	TextDisplayViewController *textDisplayViewController;
+    
+    // Annotations
+    BOOL waitingForAnnotationPoint;
 	
 	// Text search controller and stuff.
 	SearchViewController * searchViewController;
@@ -87,6 +91,7 @@
 -(void)dismissMiniSearchView;
 -(void)revertToFullSearchView;
 -(void)showMiniSearchView;
+-(void)dropAnnotationWithPoint:(CGPoint)tapPoint;
 
 @property (nonatomic, copy) NSString * documentId;
 
@@ -100,6 +105,7 @@
 @property (nonatomic, retain) UIButton *directionButton;
 @property (nonatomic, retain) UIButton *autozoomButton;
 @property (nonatomic, retain) UIButton *automodeButton;
+@property (nonatomic, retain) UIButton *annotateButton;
 @property (nonatomic, retain) UIButton *dismissButton;
 @property (nonatomic, retain) UILabel *pageLabel;
 
