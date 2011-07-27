@@ -214,6 +214,12 @@
 		01FB0F95125CB46A002D4337 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01FB0F92125CB46A002D4337 /* MenuViewController.m */; };
 		1D3623260D0F684500981E51 /* FastPDFKit_SampleAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* FastPDFKit_SampleAppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		2578142E13864FE6009DE5C6 /* doc1.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2578142B13864FE6009DE5C6 /* doc1.pdf */; };
+		2578142F13864FE6009DE5C6 /* doc2.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2578142C13864FE6009DE5C6 /* doc2.pdf */; };
+		2578143013864FE6009DE5C6 /* doc3.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2578142D13864FE6009DE5C6 /* doc3.pdf */; };
+		257814331386536A009DE5C6 /* doc4.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 257814321386536A009DE5C6 /* doc4.pdf */; };
+		25B4C8F01388DBBE00BCC488 /* StickyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B4C8EE1388DBBE00BCC488 /* StickyViewController.m */; };
+		25B4C8F11388DBBE00BCC488 /* StickyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25B4C8EF1388DBBE00BCC488 /* StickyViewController.xib */; };
 		950B37C0125CBEA5007BDDA1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 950B37BF125CBEA5007BDDA1 /* CoreGraphics.framework */; };
 		950B37C2125CBEA5007BDDA1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 950B37C1125CBEA5007BDDA1 /* Foundation.framework */; };
 		950B37C4125CBEA5007BDDA1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 950B37C3125CBEA5007BDDA1 /* QuartzCore.framework */; };
@@ -390,6 +396,13 @@
 		1D3623240D0F684500981E51 /* FastPDFKit_SampleAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FastPDFKit_SampleAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* FastPDFKit_SampleAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FastPDFKit_SampleAppDelegate.m; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* FastPdfKit Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FastPdfKit Sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2578142B13864FE6009DE5C6 /* doc1.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = doc1.pdf; sourceTree = "<group>"; };
+		2578142C13864FE6009DE5C6 /* doc2.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = doc2.pdf; sourceTree = "<group>"; };
+		2578142D13864FE6009DE5C6 /* doc3.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = doc3.pdf; sourceTree = "<group>"; };
+		257814321386536A009DE5C6 /* doc4.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = doc4.pdf; sourceTree = "<group>"; };
+		25B4C8ED1388DBBE00BCC488 /* StickyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StickyViewController.h; sourceTree = "<group>"; };
+		25B4C8EE1388DBBE00BCC488 /* StickyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickyViewController.m; sourceTree = "<group>"; };
+		25B4C8EF1388DBBE00BCC488 /* StickyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StickyViewController.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* FastPDFKit_Sample_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FastPDFKit_Sample_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* FastPdfKit_Sample-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "FastPdfKit_Sample-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
@@ -636,6 +649,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				25B4C8EB1388DB7E00BCC488 /* Annotations */,
 				01884A1A131E91000045038F /* ASIHTTP */,
 				015EF60212CA29EE0098E4B6 /* TextSearch */,
 				01884B45131EB3FF0045038F /* Bookmarks */,
@@ -675,6 +689,16 @@
 				018848E7131E89570045038F /* FastPdfKit Kiosk.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		25B4C8EB1388DB7E00BCC488 /* Annotations */ = {
+			isa = PBXGroup;
+			children = (
+				25B4C8ED1388DBBE00BCC488 /* StickyViewController.h */,
+				25B4C8EE1388DBBE00BCC488 /* StickyViewController.m */,
+				25B4C8EF1388DBBE00BCC488 /* StickyViewController.xib */,
+			);
+			name = Annotations;
 			sourceTree = "<group>";
 		};
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
@@ -746,6 +770,10 @@
 		95F5A3651270A2A700F65929 /* PDFs */ = {
 			isa = PBXGroup;
 			children = (
+				2578142B13864FE6009DE5C6 /* doc1.pdf */,
+				2578142C13864FE6009DE5C6 /* doc2.pdf */,
+				2578142D13864FE6009DE5C6 /* doc3.pdf */,
+				257814321386536A009DE5C6 /* doc4.pdf */,
 				01C9428613263A6E000364B4 /* FastPdfKit-1.0RC1crypt.pdf */,
 				01C9428713263A6E000364B4 /* FastPdfKit-1.0RC1.pdf */,
 			);
@@ -978,6 +1006,11 @@
 				01CF74B113254E0E00E42146 /* minisearch_prev@2x.png in Resources */,
 				01C9428A13263A6E000364B4 /* FastPdfKit-1.0RC1crypt.pdf in Resources */,
 				01C9428B13263A6E000364B4 /* FastPdfKit-1.0RC1.pdf in Resources */,
+				2578142E13864FE6009DE5C6 /* doc1.pdf in Resources */,
+				2578142F13864FE6009DE5C6 /* doc2.pdf in Resources */,
+				2578143013864FE6009DE5C6 /* doc3.pdf in Resources */,
+				257814331386536A009DE5C6 /* doc4.pdf in Resources */,
+				25B4C8F11388DBBE00BCC488 /* StickyViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1038,6 +1071,7 @@
 				01B916BC1321526700D517A6 /* BookmarkViewController.m in Sources */,
 				01B916C01321526F00D517A6 /* DocumentViewController.m in Sources */,
 				01B916C41321527500D517A6 /* OutlineViewController.m in Sources */,
+				25B4C8F01388DBBE00BCC488 /* StickyViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
